@@ -9,16 +9,32 @@
     <h1>Dog CEO</h1>
 
     <div id="dog-image-container">
-      <!-- images here -->
+      
     </div>
 
     <hr>
     <label for="select-breed">Filter Breeds That Start with:</label>
     <select id="breed-dropdown" name="select-breed">
+      <option selected disabled required>Filter by Letter</option>
+      
+      <script>
+        let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+        let dropdown = document.getElementById("breed-dropdown");
+        alphabet.forEach(letter => {
+          let option = document.createElement("option");
+          option.innerHTML = `${letter}`;
+          option.setAttribute("value", `${letter}`);
+          dropdown.add(option);
+        })
+      </script>
+
+      <!--
       <option value="a">a</option>
       <option value="b">b</option>
       <option value="c">c</option>
       <option value="d">d</option>
+      -->
+
     </select>
 
     <ul id="dog-breeds">
